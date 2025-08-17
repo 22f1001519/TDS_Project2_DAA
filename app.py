@@ -119,8 +119,8 @@ LLM_TIMEOUT_SECONDS = int(os.getenv("LLM_TIMEOUT_SECONDS", 240))
 
 
 @app.get("/")
-async def root():
-    return {"message": "hello"}
+async def root(request: Request):
+    return await run(request)
     
 
 def parse_keys_and_types(raw_questions: str):
